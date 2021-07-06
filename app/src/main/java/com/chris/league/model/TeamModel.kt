@@ -1,6 +1,7 @@
 package com.chris.league.model
 
 import androidx.recyclerview.widget.DiffUtil
+import java.io.Serializable
 
 data class TeamModel(
 
@@ -91,7 +92,7 @@ data class TeamModel(
     val strTwitter: String = "",
     val strWebsite: String = "",
     val strYoutube: String = "",
-) {
+) : Serializable {
 
     companion object {
 

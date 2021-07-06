@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.chris.league.model.TeamModel
 
-class ListTeamAdapter() :
+class ListTeamAdapter(private val clickItemTeam: ClickItemTeam) :
     ListAdapter<TeamModel, ListTeamViewHolder>(TeamModel.DiffCallBack) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListTeamViewHolder {
@@ -14,7 +14,8 @@ class ListTeamAdapter() :
     override fun onBindViewHolder(holder: ListTeamViewHolder, position: Int) {
         val team = getItem(position)
         holder.bind(
-            team
+            team,
+            clickItemTeam
         )
     }
 

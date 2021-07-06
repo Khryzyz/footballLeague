@@ -24,10 +24,13 @@ class ListTeamViewHolder(private val binding: ItemListTeamBinding) :
     }
 
     fun bind(
-        item: TeamModel
+        item: TeamModel,
+        clickItemTeam: ClickItemTeam
     ) {
         binding.apply {
-            txvTeamName.text = item.strTeam
+            this.teamModel = item
+            this.clickItemTeam = clickItemTeam
+            executePendingBindings()
         }
     }
 
