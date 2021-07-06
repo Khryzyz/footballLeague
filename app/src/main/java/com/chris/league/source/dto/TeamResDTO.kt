@@ -3,8 +3,8 @@ package com.chris.league.source.dto
 import com.squareup.moshi.Json
 
 data class TeamResDTO(
-    
-    @Json(name = "idAPIfootball") val idAPIfootball: Int,
+
+    @Json(name = "idAPIfootball") val idAPIFootball: Int,
 
     @Json(name = "idLeague") val idLeague: Int,
     @Json(name = "idLeague2") val idLeague2: Int?,
