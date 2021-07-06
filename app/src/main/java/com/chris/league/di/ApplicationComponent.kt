@@ -3,7 +3,9 @@ package com.chris.league.di
 import android.app.Application
 import com.chris.league.app.LeagueApplication
 import com.chris.league.di.core.ApplicationModule
+import com.chris.league.di.repository.FragmentRepositoryModule
 import com.chris.league.di.source.MoshiModule
+import com.chris.league.di.source.RemoteDataSourceModule
 import com.chris.league.di.source.RetrofitModule
 import com.chris.league.di.ui.FragmentBindingModule
 import com.chris.league.di.viewModel.FragmentViewModelModule
@@ -25,9 +27,12 @@ import javax.inject.Singleton
         //Layer.ViewModel
         ViewModelFactoryModule::class,
         FragmentViewModelModule::class,
+        //Layer.Repository
+        FragmentRepositoryModule::class,
         //Source Remote
         RetrofitModule::class,
         MoshiModule::class,
+        RemoteDataSourceModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<LeagueApplication> {
