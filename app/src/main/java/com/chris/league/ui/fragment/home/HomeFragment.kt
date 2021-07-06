@@ -45,7 +45,6 @@ class HomeFragment :
     private fun setAdapter() {
         adapter = ListTeamAdapter(clickItemTeam)
         binding.rcwListTeam.adapter = adapter
-
     }
     //endregion
 
