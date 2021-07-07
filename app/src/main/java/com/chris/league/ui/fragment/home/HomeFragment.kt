@@ -52,9 +52,12 @@ class HomeFragment :
         })
         viewModel.listLeague.observe(viewLifecycleOwner, { state ->
             when (state) {
-                is UIStateListLeague.Loading -> Unit
+                is UIStateListLeague.Loading ->  handlerLoad()
                 is UIStateListLeague.Success -> handlerSuccessGetListLeague(state.data)
-                is UIStateListLeague.Error -> handlerErrorGetListLeague(state.errorMessage)
+                is UIStateListLeague.Error -> {
+                    handlerErrorGetListLeague(state.errorMessage)
+                    handlerError(state.errorMessage)
+                }
             }
         })
     }
