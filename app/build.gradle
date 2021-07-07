@@ -113,6 +113,11 @@ dependencies {
     //Google Material
     implementation "com.google.android.material:material:$material_version"
 
+    /*Librerias para uso de Lottie................................................................*/
+
+    //Lottie
+    implementation "com.airbnb.android:lottie:$lottie_version"
+
     /*Fin de implementacion de librerias==========================================================*/
 
     //for unit testing

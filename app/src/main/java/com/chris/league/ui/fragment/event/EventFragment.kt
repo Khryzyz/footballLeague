@@ -52,7 +52,7 @@ class EventFragment :
             when (state) {
                 is UIStateListEvent.Loading -> handlerLoad()
                 is UIStateListEvent.Success -> handlerSuccess(state.data)
-                is UIStateListEvent.Error -> Unit
+                is UIStateListEvent.Error -> handlerError(state.errorMessage)
             }
         })
     }
@@ -73,6 +73,12 @@ class EventFragment :
         adapter.submitList(listEventModel)
         binding.vfListEvent.displayedChild =
             binding.vfListEvent.indexOfChild(binding.rcwListEvent)
+    }
+
+    private fun handlerError(errorMessage: String) {
+        binding.vfListEvent.displayedChild =
+            binding.vfListEvent.indexOfChild(binding.incErrorLayout.cnlErrorLayout)
+        binding.incErrorLayout.txvErrorMessage.text = errorMessage
     }
     //endregion
 }

@@ -19,5 +19,6 @@
     <dimen name="size_thumb_event_item">150dp</dimen>
     <dimen name="size_badge_jersey_item">150dp</dimen>
     <dimen name="size_icon_social_media">50dp</dimen>
+    <dimen name="size_animation">150dp</dimen>
 
 </resources>

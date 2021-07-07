@@ -19,4 +19,8 @@
         android:id="@+id/incLoadLayout"
         layout="@layout/layout_load" />
 
+    <include
+        android:id="@+id/incErrorLayout"
+        layout="@layout/layout_error" />
+
 </ViewFlipper>

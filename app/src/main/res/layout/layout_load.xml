@@ -10,13 +10,12 @@
         style="@style/guideLineHorizontal"
         app:layout_constraintGuide_percent="0.25" />
 
-    <ImageView
-        android:src="@mipmap/ic_launcher"
-        android:id="@+id/imvLoad"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animLoad"
+        style="@style/animation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:lottie_rawRes="@raw/loading" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

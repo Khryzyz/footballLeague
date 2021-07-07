@@ -8,7 +8,6 @@ import com.chris.league.R
 import com.chris.league.databinding.FragmentHomeBinding
 import com.chris.league.model.TeamModel
 import com.chris.league.ui.fragment.home.adapter.ClickItemTeam
-import com.chris.league.ui.fragment.event.adapter.ListEventAdapter
 import com.chris.league.ui.fragment.home.adapter.ListTeamAdapter
 import com.chris.league.utils.Constants
 import com.chris.league.utils.base.BaseViewBindingFragment
@@ -38,7 +37,7 @@ class HomeFragment :
             when (state) {
                 is UIStateListTeam.Loading -> handlerLoad()
                 is UIStateListTeam.Success -> handlerSuccess(state.data)
-                is UIStateListTeam.Error -> Unit
+                is UIStateListTeam.Error -> handlerError(state.errorMessage)
             }
         })
     }
@@ -59,6 +58,12 @@ class HomeFragment :
         adapter.submitList(listTeamModel)
         binding.vfListTeam.displayedChild =
             binding.vfListTeam.indexOfChild(binding.rcwListTeam)
+    }
+
+    private fun handlerError(errorMessage: String) {
+        binding.vfListTeam.displayedChild =
+            binding.vfListTeam.indexOfChild(binding.incErrorLayout.cnlErrorLayout)
+        binding.incErrorLayout.txvErrorMessage.text = errorMessage
     }
     //endregion
 
