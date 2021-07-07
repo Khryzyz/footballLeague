@@ -6,6 +6,7 @@ import android.widget.AdapterView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.chris.league.R
 import com.chris.league.app.LeagueApplication
 import com.chris.league.databinding.FragmentHomeBinding
 import com.chris.league.model.LeagueModel
