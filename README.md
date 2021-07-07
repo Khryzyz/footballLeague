@@ -30,12 +30,6 @@ Para la implementacion de la prueba se usaron las siguientes especificaciones:
 
 Diseños previos creados en Figma para la idea general de la prueba
 
-![Splash](assets/Splash.png)
-
-![Home](assets/Home.png)
-
-![Detalle](assets/Detalle.png)
-
 <img src="assets/Splash.png" alt="drawing" width="200"/>
 
 <img src="assets/Home.png" alt="drawing" width="200"/>
