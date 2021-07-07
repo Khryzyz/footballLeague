@@ -14,5 +14,7 @@
     <string name="tab_institution">Institución</string>
     <string name="tab_event">Proximos Eventos</string>
 
+    <string name="text_error_league">Error al consultar Ligas: %1$s</string>
+
 
 </resources>

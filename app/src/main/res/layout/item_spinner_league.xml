@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/txvLeagueName"
     android:layout_width="match_parent"
-    android:layout_height="44dp"
+    android:layout_height="wrap_content"
     android:gravity="center_vertical"
+    style="@style/textViewTitle"
     android:orientation="vertical"
+    android:padding="@dimen/padding_medium"
     tools:text="@tools:sample/full_names" />

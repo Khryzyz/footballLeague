@@ -3,9 +3,9 @@ package com.chris.league.ui.fragment.home
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.chris.league.R
 import com.chris.league.app.LeagueApplication
 import com.chris.league.databinding.FragmentHomeBinding
 import com.chris.league.model.LeagueModel
@@ -17,6 +17,7 @@ import com.chris.league.utils.Constants
 import com.chris.league.utils.base.BaseViewBindingFragment
 import com.chris.league.utils.uiState.UIStateListLeague
 import com.chris.league.utils.uiState.UIStateListTeam
+
 
 class HomeFragment :
     BaseViewBindingFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
@@ -52,9 +53,17 @@ class HomeFragment :
             when (state) {
                 is UIStateListLeague.Loading -> Unit
                 is UIStateListLeague.Success -> handlerSuccessGetListLeague(state.data)
-                is UIStateListLeague.Error -> Unit
+                is UIStateListLeague.Error -> handlerErrorGetListLeague(state.errorMessage)
             }
         })
+    }
+
+    private fun handlerErrorGetListLeague(errorMessage: String) {
+        Toast.makeText(
+            context,
+            getString(R.string.text_error_league, errorMessage),
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     private fun handlerSuccessGetListLeague(listLeague: List<LeagueModel>) {
@@ -75,9 +84,7 @@ class HomeFragment :
             setSelection(LeagueApplication.actualPosition)
         }
     }
-
-
-//endregion
+    //endregion
 
     //region Metodos Privados
     private fun handlerLoad() {

@@ -38,9 +38,9 @@
 
     <style name="tabLayout" parent="Theme.FootballLeague">
         <item name="android:layout_gravity">bottom</item>
-        <item name="android:background">@color/design_default_color_background</item>
+        <item name="android:background">@color/white</item>
         <item name="tabIndicatorColor">@color/colorPrimary</item>
-        <item name="tabRippleColor">@color/white</item>
+        <item name="tabRippleColor">@color/colorPrimaryDark</item>
         <item name="tabSelectedTextColor">@color/colorPrimary</item>
     </style>
 
