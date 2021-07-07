@@ -7,7 +7,7 @@ import com.chris.league.utils.glide.GlideManager
 @BindingAdapter("loadImage")
 fun bindLoadImage(imageView: ImageView, imageUrl: String?) {
     if (imageUrl != null) {
-        GlideManager.loadBadge(
+        GlideManager.loadImage(
             target = imageView,
             imageUrl = imageUrl
         )

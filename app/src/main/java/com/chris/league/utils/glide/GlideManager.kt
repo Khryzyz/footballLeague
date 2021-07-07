@@ -9,10 +9,10 @@ import com.chris.league.R
 
 object GlideManager {
 
-    fun loadBadge(target: ImageView, imageUrl: String) {
+    fun loadImage(target: ImageView, imageUrl: String) {
         val options: RequestOptions = RequestOptions()
             .placeholder(R.mipmap.loading)
-            .error(R.drawable.default_badge)
+            .error(R.mipmap.sample_badge)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .priority(Priority.HIGH)
             .dontTransform()
