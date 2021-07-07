@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/vfListTeam"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcwListTeam"
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spnListLeague"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
-        tools:listitem="@layout/item_list_team" />
+        android:layout_height="wrap_content" />
 
-    <include
-        android:id="@+id/incLoadLayout"
-        layout="@layout/layout_load" />
+    <ViewFlipper
+        android:id="@+id/vfListTeam"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/incErrorLayout"
-        layout="@layout/layout_error" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcwListTeam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            tools:listitem="@layout/item_list_team" />
 
-</ViewFlipper>
+        <include
+            android:id="@+id/incLoadLayout"
+            layout="@layout/layout_load" />
+
+        <include
+            android:id="@+id/incErrorLayout"
+            layout="@layout/layout_error" />
+
+    </ViewFlipper>
+</LinearLayout>

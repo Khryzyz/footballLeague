@@ -3,8 +3,10 @@ package com.chris.league.source.datasource
 import com.chris.league.model.TeamModel
 import com.chris.league.source.Api
 import com.chris.league.utils.toListEventModel
+import com.chris.league.utils.toListLeagueModel
 import com.chris.league.utils.toListTeamModel
 import com.chris.league.utils.uiState.UIStateListEvent
+import com.chris.league.utils.uiState.UIStateListLeague
 import com.chris.league.utils.uiState.UIStateListTeam
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -29,6 +31,24 @@ class LeagueDataSourceImp
                 }
             } catch (e: Exception) {
                 emit(UIStateListTeam.Error(e.toString()))
+            }
+        }
+    }
+
+    override suspend fun getListLeague(): Flow<UIStateListLeague> {
+        return flow {
+            try {
+                emit(UIStateListLeague.Loading)
+                val response = api.getListLeague()
+                if (response.isSuccessful) {
+                    response.body()?.let { listLeagueResDTO ->
+                        emit(UIStateListLeague.Success(listLeagueResDTO.leagues.toListLeagueModel()))
+                    }
+                } else {
+                    emit(UIStateListLeague.Error(response.errorBody()!!.toString()))
+                }
+            } catch (e: Exception) {
+                emit(UIStateListLeague.Error(e.toString()))
             }
         }
     }

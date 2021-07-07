@@ -29,7 +29,7 @@ data class TeamResDTO(
     val idLeague7: Int?,
 
     @Json(name = "idSoccerXML")
-    val idSoccerXML: Int,
+    val idSoccerXML: Int?,
 
     @Json(name = "idTeam")
     val idTeam: Int,

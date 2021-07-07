@@ -1,7 +1,9 @@
 package com.chris.league.utils
 
 import com.chris.league.model.EventModel
+import com.chris.league.model.LeagueModel
 import com.chris.league.model.TeamModel
+import com.chris.league.source.dto.LeagueResDTO
 import com.chris.league.source.dto.ResultEventResDTO
 import com.chris.league.source.dto.TeamResDTO
 
@@ -18,7 +20,7 @@ fun TeamResDTO.toTeamModel(): TeamModel = TeamModel(
     idLeague5 = idLeague5 ?: 0,
     idLeague6 = idLeague6 ?: 0,
     idLeague7 = idLeague7 ?: 0,
-    idSoccerXML = idSoccerXML,
+    idSoccerXML = idSoccerXML ?: 0,
     idTeam = idTeam,
     intFormedYear = intFormedYear,
     intLoved = intLoved ?: 0,
@@ -73,6 +75,19 @@ fun TeamResDTO.toTeamModel(): TeamModel = TeamModel(
     strTwitter = strTwitter ?: "",
     strWebsite = strWebsite ?: "",
     strYoutube = strYoutube ?: "",
+)
+
+fun List<LeagueResDTO>.toListLeagueModel(): List<LeagueModel> {
+    return map { it.toLeagueModel() }
+        .sortedBy { it.strLeague }
+        .filter { it.strSport == Constants.SPORT }
+}
+
+fun LeagueResDTO.toLeagueModel(): LeagueModel = LeagueModel(
+    idLeague = idLeague,
+    strLeague = strLeague,
+    strLeagueAlternate = strLeagueAlternate ?: "",
+    strSport = strSport,
 )
 
 fun List<ResultEventResDTO>.toListEventModel(): List<EventModel> {

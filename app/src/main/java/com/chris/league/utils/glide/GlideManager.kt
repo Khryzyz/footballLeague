@@ -12,7 +12,7 @@ object GlideManager {
     fun loadImage(target: ImageView, imageUrl: String) {
         val options: RequestOptions = RequestOptions()
             .placeholder(R.mipmap.loading)
-            .error(R.mipmap.sample_badge)
+            .error(R.drawable.ic_default_image)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .priority(Priority.HIGH)
             .dontTransform()

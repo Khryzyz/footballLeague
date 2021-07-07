@@ -5,6 +5,7 @@ object ApiConstants {
 
     object EndPoint {
         const val GET_LIST_TEAM_BY_LEAGUE_ID = "lookup_all_teams.php?"
+        const val GET_LIST_LEAGUE = "all_leagues.php"
         const val GET_LIST_EVENT_BY_TEAM_ID = "eventslast.php?"
     }
 }
