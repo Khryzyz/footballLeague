@@ -3,7 +3,6 @@ package com.chris.league.ui.fragment.detail
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import com.chris.league.R
 import com.chris.league.databinding.FragmentDetailBinding
 import com.chris.league.model.TeamModel
@@ -18,8 +17,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class DetailFragment :
     BaseViewBindingFragment<FragmentDetailBinding>(FragmentDetailBinding::inflate) {
-
-    private val viewModel: DetailViewModel by viewModels { viewModelFactory }
 
     private lateinit var teamModel: TeamModel
 

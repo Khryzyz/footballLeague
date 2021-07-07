@@ -1,13 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.fragment.institution.InstitutionFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
+    <data>
+
+        <variable
+            name="teamModel"
+            type="com.chris.league.model.TeamModel" />
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imvTeamJersey"
+                android:layout_width="@dimen/size_badge_jersey_item"
+                android:layout_height="@dimen/size_badge_jersey_item"
+                android:layout_margin="@dimen/margin_small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                binding:loadImage="@{teamModel.strTeamJersey}"
+                tools:src="@drawable/default_badge" />
+
+            <ImageView
+                android:id="@+id/imvFacebook"
+                android:layout_width="@dimen/size_icon_social_media"
+                android:layout_height="@dimen/size_icon_social_media"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:src="@drawable/ic_facebook"
+                app:layout_constraintEnd_toStartOf="@+id/imvInstagram"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imvTeamJersey" />
+
+            <ImageView
+                android:id="@+id/imvInstagram"
+                android:layout_width="@dimen/size_icon_social_media"
+                android:layout_height="@dimen/size_icon_social_media"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:src="@drawable/ic_instagram"
+                app:layout_constraintEnd_toStartOf="@+id/imvTwitter"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imvFacebook"
+                app:layout_constraintTop_toBottomOf="@+id/imvTeamJersey" />
+
+            <ImageView
+                android:id="@+id/imvTwitter"
+                android:layout_width="@dimen/size_icon_social_media"
+                android:layout_height="@dimen/size_icon_social_media"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:src="@drawable/ic_twitter"
+                app:layout_constraintEnd_toStartOf="@+id/imvWeb"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imvInstagram"
+                app:layout_constraintTop_toBottomOf="@+id/imvTeamJersey" />
+
+            <ImageView
+                android:id="@+id/imvWeb"
+                android:layout_width="@dimen/size_icon_social_media"
+                android:layout_height="@dimen/size_icon_social_media"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:src="@drawable/ic_www"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imvTwitter"
+                app:layout_constraintTop_toBottomOf="@+id/imvTeamJersey" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

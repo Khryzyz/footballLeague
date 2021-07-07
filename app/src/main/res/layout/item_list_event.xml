@@ -7,58 +7,44 @@
     <data>
 
         <variable
-            name="clickItemTeam"
-            type="com.chris.league.ui.fragment.home.adapter.ClickItemTeam" />
-
-        <variable
-            name="teamModel"
-            type="com.chris.league.model.TeamModel" />
+            name="eventModel"
+            type="com.chris.league.model.EventModel" />
     </data>
 
-    <androidx.cardview.widget.CardView
-        style="@style/card"
-        android:onClick="@{()->clickItemTeam.onClickNavigateDetail(teamModel)}">
+    <androidx.cardview.widget.CardView style="@style/card">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imvTeamBadge"
-                android:layout_width="@dimen/size_badge_team_item"
-                android:layout_height="@dimen/size_badge_team_item"
+                android:id="@+id/imvEventBadge"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_thumb_event_item"
                 android:layout_margin="@dimen/margin_small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                binding:loadImage="@{teamModel.strTeamBadge}"
+                binding:loadImage="@{eventModel.strThumb}"
                 tools:src="@drawable/default_badge" />
 
             <TextView
-                android:id="@+id/txvTeamYear"
-                style="@style/textViewSmall"
-                android:text="@{Integer.toString(teamModel.intFormedYear)}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="@tools:sample/date/mmddyy" />
-
-            <TextView
-                android:id="@+id/txvTeamName"
+                android:id="@+id/txvEventName"
                 style="@style/textViewTitle"
-                android:text="@{teamModel.strTeam}"
+                android:text="@{eventModel.strEvent}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imvTeamBadge"
+                app:layout_constraintTop_toBottomOf="@id/imvEventBadge"
                 tools:text="@tools:sample/lorem[2]" />
 
             <TextView
-                android:id="@+id/txvTeamStadium"
+                android:id="@+id/txvEventDate"
                 style="@style/textViewBody"
-                android:text="@{teamModel.strStadium}"
+                android:text="@{eventModel.dateEvent}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txvTeamName"
+                app:layout_constraintTop_toBottomOf="@id/txvEventName"
                 tools:text="@tools:sample/lorem[2]" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

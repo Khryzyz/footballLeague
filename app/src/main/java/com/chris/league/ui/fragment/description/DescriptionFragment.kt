@@ -29,7 +29,7 @@ class DescriptionFragment :
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
+        binding.txvTeamDescription.text = teamModel.strDescriptionEN
     }
 
 }

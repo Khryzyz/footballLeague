@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.chris.league.databinding.ItemListTeamBinding
 import com.chris.league.model.TeamModel
+import com.chris.league.ui.fragment.event.adapter.ListEventViewHolder
 
 class ListTeamViewHolder(private val binding: ItemListTeamBinding) :
     RecyclerView.ViewHolder(binding.root) {

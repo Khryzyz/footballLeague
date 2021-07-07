@@ -8,10 +8,11 @@ import com.chris.league.R
 import com.chris.league.databinding.FragmentHomeBinding
 import com.chris.league.model.TeamModel
 import com.chris.league.ui.fragment.home.adapter.ClickItemTeam
+import com.chris.league.ui.fragment.event.adapter.ListEventAdapter
 import com.chris.league.ui.fragment.home.adapter.ListTeamAdapter
 import com.chris.league.utils.Constants
 import com.chris.league.utils.base.BaseViewBindingFragment
-import com.chris.league.utils.uiState.UIStateData
+import com.chris.league.utils.uiState.UIStateListTeam
 
 class HomeFragment :
     BaseViewBindingFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
@@ -33,11 +34,11 @@ class HomeFragment :
 
     //region Set Components
     private fun setObserver() {
-        viewModel.data.observe(viewLifecycleOwner, { state ->
+        viewModel.listTeam.observe(viewLifecycleOwner, { state ->
             when (state) {
-                is UIStateData.Loading -> handlerLoad()
-                is UIStateData.Success -> handlerSuccess(state.data)
-                is UIStateData.Error -> Unit
+                is UIStateListTeam.Loading -> handlerLoad()
+                is UIStateListTeam.Success -> handlerSuccess(state.data)
+                is UIStateListTeam.Error -> Unit
             }
         })
     }
@@ -59,7 +60,6 @@ class HomeFragment :
         binding.vfListTeam.displayedChild =
             binding.vfListTeam.indexOfChild(binding.rcwListTeam)
     }
-
     //endregion
 
     //region Listeners

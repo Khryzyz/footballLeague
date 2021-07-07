@@ -1,6 +1,8 @@
 package com.chris.league.utils
 
+import com.chris.league.model.EventModel
 import com.chris.league.model.TeamModel
+import com.chris.league.source.dto.ResultEventResDTO
 import com.chris.league.source.dto.TeamResDTO
 
 fun List<TeamResDTO>.toListTeamModel(): List<TeamModel> {
@@ -71,4 +73,74 @@ fun TeamResDTO.toTeamModel(): TeamModel = TeamModel(
     strTwitter = strTwitter ?: "",
     strWebsite = strWebsite ?: "",
     strYoutube = strYoutube ?: "",
+)
+
+fun List<ResultEventResDTO>.toListEventModel(): List<EventModel> {
+    return map { it.toEventModel() }.sortedBy { it.dateEvent }
+}
+
+fun ResultEventResDTO.toEventModel(): EventModel = EventModel(
+    idEvent = idEvent,
+    dateEvent = dateEvent,
+    dateEventLocal = dateEventLocal ?: "",
+    idAPIFootball = idAPIFootball ?: 0,
+    idAwayTeam = idAwayTeam ?: 0,
+    idHomeTeam = idHomeTeam ?: 0,
+    idLeague = idLeague ?: 0,
+    idSoccerXML = idSoccerXML ?: 0,
+    intAwayScore = intAwayScore ?: 0,
+    intAwayShots = intAwayShots ?: 0,
+    intHomeScore = intHomeScore ?: 0,
+    intHomeShots = intHomeShots ?: 0,
+    intRound = intRound ?: 0,
+    intSpectators = intSpectators ?: 0,
+    strAwayFormation = strAwayFormation ?: "",
+    strAwayGoalDetails = strAwayGoalDetails ?: "",
+    strAwayLineupDefense = strAwayLineupDefense ?: "",
+    strAwayLineupForward = strAwayLineupForward ?: "",
+    strAwayLineupGoalkeeper = strAwayLineupGoalkeeper ?: "",
+    strAwayLineupMidfield = strAwayLineupMidfield ?: "",
+    strAwayLineupSubstitutes = strAwayLineupSubstitutes ?: "",
+    strAwayRedCards = strAwayRedCards ?: "",
+    strAwayTeam = strAwayTeam ?: "",
+    strAwayYellowCards = strAwayYellowCards ?: "",
+    strBanner = strBanner ?: "",
+    strCity = strCity ?: "",
+    strCountry = strCountry ?: "",
+    strDescriptionEN = strDescriptionEN ?: "",
+    strEvent = strEvent ?: "",
+    strEventAlternate = strEventAlternate ?: "",
+    strFanart = strFanart ?: "",
+    strFilename = strFilename ?: "",
+    strHomeFormation = strHomeFormation ?: "",
+    strHomeGoalDetails = strHomeGoalDetails ?: "",
+    strHomeLineupDefense = strHomeLineupDefense ?: "",
+    strHomeLineupForward = strHomeLineupForward ?: "",
+    strHomeLineupGoalkeeper = strHomeLineupGoalkeeper ?: "",
+    strHomeLineupMidfield = strHomeLineupMidfield ?: "",
+    strHomeLineupSubstitutes = strHomeLineupSubstitutes ?: "",
+    strHomeRedCards = strHomeRedCards ?: "",
+    strHomeTeam = strHomeTeam ?: "",
+    strHomeYellowCards = strHomeYellowCards ?: "",
+    strLeague = strLeague ?: "",
+    strLocked = strLocked ?: "",
+    strMap = strMap ?: "",
+    strOfficial = strOfficial ?: "",
+    strPoster = strPoster ?: "",
+    strPostponed = strPostponed ?: "",
+    strResult = strResult ?: "",
+    strSeason = strSeason ?: "",
+    strSport = strSport ?: "",
+    strSquare = strSquare ?: "",
+    strStatus = strStatus ?: "",
+    strTVStation = strTVStation ?: "",
+    strThumb = strThumb ?: "",
+    strTime = strTime ?: "",
+    strTimeLocal = strTimeLocal ?: "",
+    strTimestamp = strTimestamp ?: "",
+    strTweet1 = strTweet1 ?: "",
+    strTweet2 = strTweet2 ?: "",
+    strTweet3 = strTweet3 ?: "",
+    strVenue = strVenue ?: "",
+    strVideo = strVideo ?: "",
 )

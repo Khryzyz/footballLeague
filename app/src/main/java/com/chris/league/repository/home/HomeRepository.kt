@@ -1,8 +1,8 @@
 package com.chris.league.repository.home
 
-import com.chris.league.utils.uiState.UIStateData
+import com.chris.league.utils.uiState.UIStateListTeam
 import kotlinx.coroutines.flow.Flow
 
 interface HomeRepository {
-    suspend fun getData(leagueId: Int): Flow<UIStateData>
+    suspend fun getListTeam(leagueId: Int): Flow<UIStateListTeam>
 }

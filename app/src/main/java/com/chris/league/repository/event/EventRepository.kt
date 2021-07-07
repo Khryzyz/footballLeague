@@ -1,11 +1,9 @@
-package com.chris.league.source.datasource
+package com.chris.league.repository.event
 
 import com.chris.league.model.TeamModel
 import com.chris.league.utils.uiState.UIStateListEvent
-import com.chris.league.utils.uiState.UIStateListTeam
 import kotlinx.coroutines.flow.Flow
 
-interface LeagueDataSource {
-    suspend fun getListTeam(leagueId:Int): Flow<UIStateListTeam>
+interface EventRepository {
     suspend fun getListEvent(teamModel: TeamModel): Flow<UIStateListEvent>
 }
