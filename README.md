@@ -42,7 +42,7 @@ Pantallazos del Resultado Final de la Prueba
 
 <img src="assets/Home_Final.png" alt="drawing" width="200"/>
 
-<img src="assets/Detalle_Final.png" alt="drawing" width="200"/>
+<img src="assets/Detail_Final.png" alt="drawing" width="200"/>
 
 ### Listado de Requisitos
 
