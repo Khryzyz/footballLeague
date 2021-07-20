@@ -9,6 +9,7 @@ import com.chris.league.utils.uiState.UIStateListEvent
 import com.chris.league.utils.uiState.UIStateListLeague
 import com.chris.league.utils.uiState.UIStateListTeam
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
@@ -19,56 +20,49 @@ class LeagueDataSourceImp
 
     override suspend fun getListTeam(leagueId: Int): Flow<UIStateListTeam> {
         return flow {
-            try {
-                emit(UIStateListTeam.Loading)
-                val response = api.getListTeamByLeagueId(leagueId)
-                if (response.isSuccessful) {
-                    response.body()?.let { leagueResDTO ->
-                        emit(UIStateListTeam.Success(leagueResDTO.teamResDTO.toListTeamModel()))
-                    }
-                } else {
-                    emit(UIStateListTeam.Error(response.errorBody()!!.toString()))
+            emit(UIStateListTeam.Loading)
+            val response = api.getListTeamByLeagueId(leagueId)
+            if (response.isSuccessful) {
+                response.body()?.let { leagueResDTO ->
+                    emit(UIStateListTeam.Success(leagueResDTO.teamResDTO.toListTeamModel()))
                 }
-            } catch (e: Exception) {
-                emit(UIStateListTeam.Error(e.toString()))
+            } else {
+                emit(UIStateListTeam.Error(response.errorBody().toString()))
             }
+        }.catch {
+            emit(UIStateListTeam.Error(it.toString()))
         }
     }
 
     override suspend fun getListLeague(): Flow<UIStateListLeague> {
         return flow {
-            try {
-                emit(UIStateListLeague.Loading)
-                val response = api.getListLeague()
-                if (response.isSuccessful) {
-                    response.body()?.let { listLeagueResDTO ->
-                        emit(UIStateListLeague.Success(listLeagueResDTO.leagues.toListLeagueModel()))
-                    }
-                } else {
-                    emit(UIStateListLeague.Error(response.errorBody()!!.toString()))
+            emit(UIStateListLeague.Loading)
+            val response = api.getListLeague()
+            if (response.isSuccessful) {
+                response.body()?.let { listLeagueResDTO ->
+                    emit(UIStateListLeague.Success(listLeagueResDTO.leagues.toListLeagueModel()))
                 }
-            } catch (e: Exception) {
-                emit(UIStateListLeague.Error(e.toString()))
+            } else {
+                emit(UIStateListLeague.Error(response.errorBody().toString()))
             }
+        }.catch {
+            emit(UIStateListLeague.Error(it.toString()))
         }
     }
 
     override suspend fun getListEvent(teamModel: TeamModel): Flow<UIStateListEvent> {
         return flow {
-            try {
-                emit(UIStateListEvent.Loading)
-                val response = api.getListEventByTeamId(teamModel.idTeam)
-                if (response.isSuccessful) {
-                    response.body()?.let { eventResDTO ->
-                        emit(UIStateListEvent.Success(eventResDTO.result.toListEventModel()))
-                    }
-                } else {
-                    emit(UIStateListEvent.Error(response.errorBody()!!.toString()))
+            emit(UIStateListEvent.Loading)
+            val response = api.getListEventByTeamId(teamModel.idTeam)
+            if (response.isSuccessful) {
+                response.body()?.let { eventResDTO ->
+                    emit(UIStateListEvent.Success(eventResDTO.result.toListEventModel()))
                 }
-            } catch (e: Exception) {
-                emit(UIStateListEvent.Error(e.toString()))
+            } else {
+                emit(UIStateListEvent.Error(response.errorBody().toString()))
             }
+        }.catch {
+            emit(UIStateListEvent.Error(it.toString()))
         }
     }
-
 }

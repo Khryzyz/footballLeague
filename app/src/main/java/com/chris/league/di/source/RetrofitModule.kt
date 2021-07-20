@@ -3,7 +3,6 @@ package com.chris.league.di.source
 import com.chris.league.source.Api
 import com.chris.league.source.ApiConstants
 import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -27,11 +26,10 @@ class RetrofitModule {
 
     @Provides
     @Singleton
-    fun providesRetrofit(httpClient: OkHttpClient): Api {
-        val moshi = Moshi.Builder()
-            .add(KotlinJsonAdapterFactory())
-            .build()
-
+    fun providesRetrofit(
+        httpClient: OkHttpClient,
+        moshi: Moshi
+    ): Api {
         val retrofit = Retrofit
             .Builder()
             .baseUrl(ApiConstants.BASE_URL)
